@@ -1182,7 +1182,7 @@ main {
 .login h3{
 	text-align: center;
 	padding: 20px;
-	background-color: #f0f0f0;
+	background-color: #9cd3db;
 	margin: auto;
 	font-weight: bold;
 }
@@ -1198,7 +1198,7 @@ main {
 }
 
 .login td{
-	background-color: #f0f0f0;
+	background-color: #9cd3db;
 	padding: 10px 20px;
 }
 
