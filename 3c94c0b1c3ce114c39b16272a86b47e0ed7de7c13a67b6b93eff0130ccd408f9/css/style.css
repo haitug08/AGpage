@@ -1194,11 +1194,11 @@ main {
 }
 
 .login th{
-	background-color: black;
+	background-color: #9cd3db;
 }
 
 .login td{
-	background-color: #9cd3db;
+	background-color: #f0f0f0;
 	padding: 10px 20px;
 }
 
