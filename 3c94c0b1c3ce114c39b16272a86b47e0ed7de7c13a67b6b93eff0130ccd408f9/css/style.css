@@ -24,7 +24,7 @@ html,body {
 body {
 	font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;	/*フォント種類*/
 	-webkit-text-size-adjust: none;
-	background: #f7f7f7;	/*背景色*/
+	background: #def2f5;	/*背景色*/
 	color: #333;		/*全体の文字色*/
 	line-height: 2;		/*行間*/
 }
@@ -889,7 +889,7 @@ main {
 .ac-box input:checked ~ .open{
 	height: auto;
 	margin: auto;
-	background: #f7f7f7;
+	background: #def2f5;
 	border: 0px solid #111;
 	opacity: 1;
 	padding: 0px 0px 0px 40px;
