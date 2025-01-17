@@ -58,7 +58,7 @@ function calculate() {
   const attorneyFeeResult = document.getElementById("attorney-fee-result");
 
   if (premium) {
-    premiumResult.textContent = `¥${premium.toLocaleString()}`;
+    premiumResult.textContent = `${premium.toLocaleString()}円/${timesValue === "1" ? "月" : "年"}`;
     legalConsultationResult.textContent = legalConsultationText;
     attorneyFeeResult.textContent = attorneyFeeText;
   } else {
