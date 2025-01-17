@@ -11,34 +11,34 @@ function calculate() {
   // パターン別に保険料と保険金額を設定
   if (classValue === "1") { // 個人事業主
     if (planValue === "1") { // ライトプラン
-      premium = timesValue === "1" ? 3000 : 35000; // 月払か年払
+      premium = timesValue === "1" ? 4500 : 54000; // 月払か年払
       coverage = 1000000;
     } else if (planValue === "2") { // スタンダードプラン
-      premium = timesValue === "1" ? 5000 : 58000;
+      premium = timesValue === "1" ? 11700   : 140400;
       coverage = 3000000;
     }
   } else if (classValue === "2") { // 法人A
     if (planValue === "1") {
-      premium = timesValue === "1" ? 10000 : 120000;
+      premium = timesValue === "1" ? 26500 : 318000;
       coverage = 5000000;
     } else if (planValue === "2") {
-      premium = timesValue === "1" ? 15000 : 180000;
+      premium = timesValue === "1" ? 63900 : 766800;
       coverage = 10000000;
     }
   } else if (classValue === "3") { // 法人B
     if (planValue === "1") {
-      premium = timesValue === "1" ? 7000 : 80000;
+      premium = timesValue === "1" ? 22000 : 264000;
       coverage = 3000000;
     } else if (planValue === "2") {
-      premium = timesValue === "1" ? 12000 : 140000;
+      premium = timesValue === "1" ? 52800 : 633600;
       coverage = 7000000;
     }
   } else if (classValue === "4") { // 法人C
     if (planValue === "1") {
-      premium = timesValue === "1" ? 5000 : 60000;
+      premium = timesValue === "1" ? 10000 : 120000;
       coverage = 2000000;
     } else if (planValue === "2") {
-      premium = timesValue === "1" ? 8000 : 90000;
+      premium = timesValue === "1" ? 22800 : 273600;
       coverage = 5000000;
     }
   }
