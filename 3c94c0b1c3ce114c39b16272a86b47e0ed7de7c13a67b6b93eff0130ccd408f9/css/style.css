@@ -1252,6 +1252,14 @@ main {
  margin:0 0 0 10px;
 }
 
+#premium-result,
+#legal-consultation-result,
+#attorney-fee-result {
+ font-weight: bold;
+ font-size: 170%;
+}
+
+
 @media screen and (max-width:899px) {
 .col_width {
 	width: 50%;
