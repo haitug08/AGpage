@@ -6,49 +6,49 @@ function calculate() {
 
   // 保険料と保険金額を初期化
   let premium = 0; // 保険料
-  let legalConsultationCoverage = 0; // 法律相談料保険金
-  let attorneyFeeCoverage = 0; // 弁護士費用保険金
+  let legalConsultationText = ""; // 法律相談料保険金テキスト
+  let attorneyFeeText = ""; // 弁護士費用保険金テキスト
 
   // パターン別に保険料と保険金額を設定
   if (classValue === "1") { // 個人事業主
     if (planValue === "1") { // ライトプラン
-      premium = timesValue === "1" ? 4500 : 54000; // 月払か年払
-      legalConsultationCoverage = 5.5万円・2回/年;
-      attorneyFeeCoverage = 700000;
+      premium = timesValue === "1" ? 3000 : 35000; // 月払か年払
+      legalConsultationText = "30万円・2回/年";
+      attorneyFeeText = "70万円・1回/年";
     } else if (planValue === "2") { // スタンダードプラン
-      premium = timesValue === "1" ? 11700 : 140400;
-      legalConsultationCoverage = 5.5万円・2回/年;
-      attorneyFeeCoverage = 2000000;
+      premium = timesValue === "1" ? 5000 : 58000;
+      legalConsultationText = "100万円・3回/年";
+      attorneyFeeText = "200万円・2回/年";
     }
   } else if (classValue === "2") { // 法人A
     if (planValue === "1") {
-      premium = timesValue === "1" ? 26500 : 318000;
-      legalConsultationCoverage = 11万円・3回/年;
-      attorneyFeeCoverage = 3500000;
+      premium = timesValue === "1" ? 10000 : 120000;
+      legalConsultationText = "150万円・3回/年";
+      attorneyFeeText = "350万円・2回/年";
     } else if (planValue === "2") {
-      premium = timesValue === "1" ? 63900 : 766800;
-      legalConsultationCoverage = 11万円・3回/年;
-      attorneyFeeCoverage = 7000000;
+      premium = timesValue === "1" ? 15000 : 180000;
+      legalConsultationText = "300万円・5回/年";
+      attorneyFeeText = "700万円・3回/年";
     }
   } else if (classValue === "3") { // 法人B
     if (planValue === "1") {
-      premium = timesValue === "1" ? 22000 : 264000;
-      legalConsultationCoverage = 11万円・3回/年;
-      attorneyFeeCoverage = 2000000;
+      premium = timesValue === "1" ? 7000 : 80000;
+      legalConsultationText = "100万円・2回/年";
+      attorneyFeeText = "200万円・1回/年";
     } else if (planValue === "2") {
-      premium = timesValue === "1" ? 52800 : 633600;
-      legalConsultationCoverage = 11万円・3回/年;
-      attorneyFeeCoverage = 5000000;
+      premium = timesValue === "1" ? 12000 : 140000;
+      legalConsultationText = "200万円・4回/年";
+      attorneyFeeText = "500万円・2回/年";
     }
   } else if (classValue === "4") { // 法人C
     if (planValue === "1") {
-      premium = timesValue === "1" ? 10000 : 120000;
-      legalConsultationCoverage = 11万円・3回/年;
-      attorneyFeeCoverage = 1500000;
+      premium = timesValue === "1" ? 5000 : 60000;
+      legalConsultationText = "50万円・1回/年";
+      attorneyFeeText = "150万円・1回/年";
     } else if (planValue === "2") {
-      premium = timesValue === "1" ? 22800 : 273600;
-      legalConsultationCoverage = 11万円・3回/年;
-      attorneyFeeCoverage = 3500000;
+      premium = timesValue === "1" ? 8000 : 90000;
+      legalConsultationText = "150万円・3回/年";
+      attorneyFeeText = "350万円・2回/年";
     }
   }
 
@@ -59,12 +59,11 @@ function calculate() {
 
   if (premium) {
     premiumResult.textContent = `¥${premium.toLocaleString()}`;
-    legalConsultationResult.textContent = `¥${legalConsultationCoverage.toLocaleString()}`;
-    attorneyFeeResult.textContent = `¥${attorneyFeeCoverage.toLocaleString()}`;
+    legalConsultationResult.textContent = legalConsultationText;
+    attorneyFeeResult.textContent = attorneyFeeText;
   } else {
     premiumResult.textContent = "---";
     legalConsultationResult.textContent = "---";
     attorneyFeeResult.textContent = "---";
   }
 }
-
