@@ -39,50 +39,45 @@
 
   <form class="form">   
       <table class="ta1">
-        <caption>選択yしてください</caption>
+        <caption>選択してください</caption>
 
     <tr>
      <th>区分</th>
       <td>
        <div class="select1">
-         <select id="contractor_age" name="class" onchange="calculate()" style="width: 300px;">
-          <option value=" ">　</option>
-          <option value="50">個人事業主</option>
-          <option value="51">法人A（100名以上300名未満）</option>
-          <option value="51">法人B（10名以上100名未満）</option>
-          <option value="51">法人C（10名未満）</option>
-         </td>
-    </tr>
-    <tr>
-      <th>区分</th>
-       <td>
-        <div class="radio01">
-         <input type="radio" id="individual" name="class" onchange="calculate()" value="1"><label for="individual">個人事業主</label>
-         <input type="radio" id="corporation" name="class" onchange="calculate()" value="2"><label for="corporation">法人A（100名以上300名未満）</label>
-         <input type="radio" id="corporation" name="class" onchange="calculate()" value="3"><label for="corporation">法人B（10名以上100名未満）</label>
-         <input type="radio" id="corporation" name="class" onchange="calculate()" value="4"><label for="corporation">法人C（10名未満）</label>
-
-        </div>
+         <select id="class1" name="class" onchange="calculate()" style="width: 300px;">
+          <option value=" ">---</option>
+          <option value="1">個人事業主</option>
+          <option value="2">法人A（100名以上300名未満）</option>
+          <option value="3">法人B（10名以上100名未満）</option>
+          <option value="4">法人C（10名未満）</option>
+         </select>
+       </div>
       </td>
     </tr>
     <tr>
-      <th>プラン</th>
+     <th>プラン</th>
       <td>
-        <div class="radio01">
-        <input type="radio" id="light" name="plan" onchange="calculate()" value="1"><label for="light">ライト</label>
-        <input type="radio" id="standard" name="plan" onchange="calculate()" value="2"><label for="standard">スタンダード</label>
-        </div>
+       <div class="select1">
+         <select id="plan1" name="plan" onchange="calculate()" style="width: 300px;">
+          <option value=" ">---</option>
+          <option value="1">ライト</option>
+          <option value="2">スタンダード</option>
+         </select>
+       </div>
       </td>
     </tr>
     <tr>
-      <th>払込回数</th>
+     <th>払込回数</th>
       <td>
-        <div class="radio01">
-        <input type="radio" id="month" name="times" onchange="calculate()" value="1"><label for="month">月払</label>
-        <input type="radio" id="year" name="times" onchange="calculate()" value="2"><label for="year">年払</label>
-        </div>
+       <div class="select1">
+         <select id="times1" name="times" onchange="calculate()" style="width: 300px;">
+          <option value="1">月払</option>
+          <option value="2">年払</option>
+         </select>
+       </div>
       </td>
-    </tr>
+    </tr>       
    </table>
 
     <div class="ac-box">
