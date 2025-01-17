@@ -43,19 +43,18 @@
     <tr>
       <th>区分</th>
        <td>
-      <div class="form-select-wrap">
-         <select class="birthday-year" style="width: 90px;" onchange="calculate()"></select>年
-         <select class="birthday-month" style="width: 50px;" onchange="calculate()"></select>月
-         <select class="birthday-day" style="width: 50px;" onchange="calculate()"></select>日
-      </div>      
+        <div class="radio01">
+        <input type="radio" id="corporation" name="class" onchange="calculate()" value="1"><label for="corporation">法人</label>
+        <input type="radio" id="individual" name="class" onchange="calculate()" value="2"><label for="individual">個人事業主</label>
+        </div>
       </td>
     </tr>
     <tr>
       <th>プラン</th>
       <td>
         <div class="radio01">
-        <input type="radio" id="male" name="gender" onchange="calculate()" value="1"><label for="male">男性</label>
-        <input type="radio" id="female" name="gender" onchange="calculate()" value="2"><label for="female">女性</label>
+        <input type="radio" id="light" name="plan" onchange="calculate()" value="1"><label for="light">ライト</label>
+        <input type="radio" id="standard" name="plan" onchange="calculate()" value="2"><label for="standard">スタンダード</label>
         </div>
       </td>
     </tr>
