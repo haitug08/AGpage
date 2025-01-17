@@ -34,24 +34,14 @@
 
 <section>
     <div class="no-print">  
-      <h2>プランお見積り</h2>
+      <h2>プラン見積</h2>
     </div>
 
-  <form class="form">
-    <div class="center">
-      <img src="https://kizuna-ssi.github.io/sub/images/kizuna_ssi_top.png" style="width: 25%; min-width: 250px;">
-      <p><br><span style="font-size: 1.5em; font-weight: bold; color: #0D955A;">保険金額固定コース</span></p>
-    </div> 
-   
-    <div class="no-print">
+  <form class="form">   
       <table class="ta1">
-        <caption>
-          被保険者となる方の生年月日と性別、<br class="br-sp">
-          ご希望の保険金額と払込回数を選択し、<br class="br-sp">
-          見積結果をクリック
-        </caption>
+        <caption>プラン見積</caption>
     <tr>
-      <th>生年<br class="br-sp">月日</th>
+      <th>区分</th>
        <td>
       <div class="form-select-wrap">
          <select class="birthday-year" style="width: 90px;" onchange="calculate()"></select>年
@@ -61,24 +51,13 @@
       </td>
     </tr>
     <tr>
-      <th>性別</th>
+      <th>プラン</th>
       <td>
         <div class="radio01">
         <input type="radio" id="male" name="gender" onchange="calculate()" value="1"><label for="male">男性</label>
         <input type="radio" id="female" name="gender" onchange="calculate()" value="2"><label for="female">女性</label>
         </div>
       </td>
-    </tr>
-    <tr>
-      <th>保険<br class="br-sp">金額</th>
-      <td>
-        <div class="radio01">
-        <input type="radio" id="50" name="amount" onchange="calculate()" value="0"><label for="50">50万円</label>
-        <input type="radio" id="100" name="amount" onchange="calculate()" value="1"><label for="100">100万円</label>
-        <input type="radio" id="200" name="amount" onchange="calculate()" value="2"><label for="200">200万円</label>
-       <input type="radio" id="300" name="amount" onchange="calculate()" value="3"><label for="300">300万円</label>
-        </div>
-     </td>
     </tr>
     <tr>
       <th>払込<br class="br-sp">回数</th>
@@ -90,7 +69,6 @@
       </td>
     </tr>
    </table>
-    </div>
 
     <div class="ac-box">
       <input id="ac-1" name="accordion-1" type="checkbox" />
