@@ -44,14 +44,14 @@ function calculate() {
   }
 
   // 結果を表示
-  const premiumCell = document.querySelector("table.ta1:nth-of-type(2) tr:nth-of-type(1) td");
-  const coverageCell = document.querySelector("table.ta1:nth-of-type(2) tr:nth-of-type(2) td");
+  const premiumResult = document.getElementById("premium-result");
+  const coverageResult = document.getElementById("coverage-result");
 
   if (premium && coverage) {
-    premiumCell.textContent = `¥${premium.toLocaleString()}`;
-    coverageCell.textContent = `¥${coverage.toLocaleString()}`;
+    premiumResult.textContent = `¥${premium.toLocaleString()}`;
+    coverageResult.textContent = `¥${coverage.toLocaleString()}`;
   } else {
-    premiumCell.textContent = "---";
-    coverageCell.textContent = "---";
+    premiumResult.textContent = "---";
+    coverageResult.textContent = "---";
   }
 }
