@@ -37,9 +37,9 @@ function calculate(index) {
 }
 
 function updateTotal() {
-  // 各行の保険料単価と獲得件数を取得して計算
   const rows = 4; // 行数
   let totalPremium = 0;
+  let totalCommission = 0;
 
   for (let i = 1; i <= rows; i++) {
     const premium = parseInt(document.getElementById(`premium-result${i}`).textContent.replace(/[^0-9]/g, ""), 10) || 0;
@@ -49,11 +49,18 @@ function updateTotal() {
     // 非表示フィールドに計算結果を設定
     document.getElementById(`total${i}`).value = rowTotal;
 
-    // 合計を加算
+    // 保険料の合計を加算
     totalPremium += rowTotal;
+
+    // 手数料の合計を加算 (保険料の30%)
+    totalCommission += rowTotal * 0.3;
   }
 
-  // 合計を表示
+  // 保険料合計を表示
   document.getElementById("total-premium").textContent = totalPremium > 0 ? `${totalPremium.toLocaleString()}円` : "---";
+
+  // 手数料合計を表示
+  document.getElementById("total-commission").textContent = totalCommission > 0 ? `${totalCommission.toLocaleString()}円` : "---";
 }
+
 
