@@ -52,7 +52,23 @@
        </div>
       </td>
     </tr>
+   </table>
+  
+  <table class="ta1" style="max-width: 800px;">
+   <caption>選択してください</caption>
     <tr>
+     <th>区分</th>
+      <td>
+       <div class="select1">
+         <select id="class1" name="class" onchange="calculate()" style="width: 300px;">
+          <option value=" ">---</option>
+          <option value="2">法人A（100名以上300名未満）</option>
+          <option value="3">法人B（10名以上100名未満）</option>
+          <option value="4">法人C（10名未満）</option>
+          <option value="1">個人事業主</option>
+         </select>
+       </div>
+      </td>
      <th>プラン</th>
       <td>
        <div class="select1">
@@ -63,8 +79,6 @@
          </select>
        </div>
       </td>
-    </tr>
-    <tr>
      <th>払込回数</th>
       <td>
        <div class="select1">
@@ -74,35 +88,18 @@
          </select>
        </div>
       </td>
-    </tr>       
-   </table>
-
-<table class="ta1" style="max-width: 800px;">
- <caption>見積結果</caption>
- <tr>
     <th>保険料</th>
     <td id="premium-result">---</td>
  </tr>
  </table>
 
 <table class="ta1" style="max-width: 800px;">
- <caption>補償内容</caption>
+ <caption>手数料結果</caption>
  <tr>
-    <th rowspan="2">保険金額</th>
-    <th>法律相談料保険金</th>
-    <td id="legal-consultation-result">---</td>
+    <th>手数料</th>
+    <td id="">---</td>
  </tr>
- <tr>
-    <th>弁護士費用保険金</th>
-    <td id="attorney-fee-result">---</td>
- </tr>
- <tr>
-  <th>特約</th>
-  <td id="special-clause-result" colspan="2">---</td>
- </tr>
-</table>
-
-  
+ </table>  
  </form>
 </section>
 </main>
