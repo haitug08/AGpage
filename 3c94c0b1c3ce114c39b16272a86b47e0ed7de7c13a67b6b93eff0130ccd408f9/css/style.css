@@ -357,7 +357,8 @@ footer .pr {display: block;}
 
 /*ボタン*/
 .btn a,
-.btn input {
+.btn input,
+.btn button {
 	display: inline-block;text-decoration: none;border: none;
 	border-radius: 3px;		/*角丸のサイズ。ほんの少しだけ角が丸くなります。*/
 	padding: 10px 40px;	/*上下、左右への余白。*/
@@ -370,7 +371,8 @@ footer .pr {display: block;}
 }
 
 /*ボタンのマウスオン時（inputタグ使用時）*/
-.btn input:hover {
+.btn input:hover,
+.btn button:hover; {
 	cursor: pointer;
 	opacity: 0.6;	/*冒頭のリンクテキストのhoverと合わせました*/
 }
