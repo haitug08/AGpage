@@ -412,6 +412,16 @@ footer .pr {display: block;}
 	text-align: center;	/*中央よせにする*/
 }
 
+.ta1 td {
+	text-align: center; /* テキストやコンテンツを中央揃えに */
+	vertical-align: middle; /* 縦方向の中央揃え */
+}
+
+.ta1 td .select1 {
+	display: inline-block; /* 要素の幅を内容に合わせる */
+	margin: 0 auto; /* 左右の余白を自動設定して中央揃え */
+}
+
 .ta2 caption {
 	font-weight: bold;			/*太字に*/
 	padding: 10px 5px;			/*上下、左右へのボックス内の余白。基本的に数行下の「.ta2 th, .ta2 td」のpaddingと揃えておけばOKです。*/
