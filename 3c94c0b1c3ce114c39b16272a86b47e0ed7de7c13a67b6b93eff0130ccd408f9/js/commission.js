@@ -60,14 +60,24 @@ function updateTotal() {
   const taxRate = 0.1; // 消費税10%
   const totalCommissionTax = totalCommission * (1 + taxRate);
 
-  // 保険料合計を表示
+  // 単月の結果を表示
   document.getElementById("total-premium").textContent = totalPremium > 0 ? `${totalPremium.toLocaleString()}円` : "---";
-
-  // 手数料合計を表示
   document.getElementById("total-commission").textContent = totalCommission > 0 ? `${totalCommission.toLocaleString()}円` : "---";
-
-  // 手数料合計（税込）を表示
   document.getElementById("total-commission-tax").textContent = totalCommissionTax > 0 ? `${totalCommissionTax.toLocaleString()}円` : "---";
-}
 
+  // 継続期間を考慮した計算
+  const continuationPeriod = parseInt(document.getElementById("continuation-period").value, 10) || 12;
+  let continuationPremium = 0;
+
+  for (let month = 1; month <= continuationPeriod; month++) {
+    continuationPremium += totalPremium * month;
+  }
+
+  const continuationCommission = continuationPremium * 0.3;
+  const continuationCommissionTax = continuationCommission * (1 + taxRate);
+
+  // 継続の結果を表示
+  document.getElementById("continuation-premium").textContent = continuationPremium > 0 ? `${continuationPremium.toLocaleString()}円` : "---";
+  document.getElementById("continuation-commission-tax").textContent = continuationCommissionTax > 0 ? `${continuationCommissionTax.toLocaleString()}円` : "---";
+}
 
