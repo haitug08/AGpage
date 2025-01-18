@@ -245,7 +245,7 @@
    <th style="width: 50%;">継続期間</th>
    <td>
     <div class="select1">
-         <select id="" name="" onchange="">
+         <select id="continuation-period" name="continuation-period" onchange="updateTotal()">
           <option value="12">12か月継続</option>
           <option value="24">24か月継続</option>
           <option value="36">36か月継続</option>
@@ -256,16 +256,16 @@
    </td>
  </tr>
 <tr>
- <th>保険料合計<small>（非課税）</small></th>
- <td id="">---</td>
+  <th>保険料合計<small>（非課税）</small></th>
+  <td id="continuation-premium">---</td>
 </tr>
 <tr id="" style="display: none;">
  <th>手数料合計</th>
  <td id="">---</td>
 </tr>
 <tr>
- <th>手数料合計<small>（税込み）</small></th>
- <td id="">---</td>
+  <th>手数料合計<small>（税込み）</small></th>
+  <td id="continuation-commission-tax">---</td>
 </tr>
  </table>  
   
