@@ -61,7 +61,7 @@
      <th>プラン</th>
      <th>払込回数</th>
      <th>保険料単価</th>
-     <th>毎月の獲得件数</th>
+     <th>獲得件数</th>
    </tr>
    <tr>
     <td>
@@ -216,9 +216,8 @@
  <button id="button" type="button" onclick="updateTotal()">計算</button>
 </div>
 
-  
 <table class="ta1" style="width: 600px;">
- <caption>シミュレーション結果</caption>
+ <caption>シミュレーション結果（単月）</caption>
  <tr>
    <th>継続期間</th>
    <td>
@@ -234,14 +233,41 @@
    </td>
  </tr>
  <tr>
-   <th>保険料 計<br>（非課税）</th>
+   <th>保険料 計<br><small>（非課税）</small></th>
    <td id="total-premium">---</td>
  </tr>
  <tr>
-   <th>手数料 計<br>（税込）</th>
+   <th>手数料 計<br><small>（税込）</small></th>
    <td id="total-commission-tax">---</td>
  </tr>
  </table>  
+
+<table class="ta1" style="width: 600px;">
+ <caption>シミュレーション結果（継続）</caption>
+ <tr>
+   <th>継続期間</th>
+   <td>
+    <div class="select1">
+         <select id="" name="" onchange="">
+          <option value="12">12か月継続</option>
+          <option value="24">24か月継続</option>
+          <option value="36">36か月継続</option>
+          <option value="48">48か月継続</option>
+          <option value="60">60か月継続</option>
+         </select> 
+    </div>
+   </td>
+ </tr>
+ <tr>
+   <th>保険料 計<br><small>（非課税）</small></th>
+   <td id="">---</td>
+ </tr>
+ <tr>
+   <th>手数料 計<br><small>（税込）</small></th>
+   <td id="">---</td>
+ </tr>
+ </table>  
+  
  </form>
 </section>
 </main>
