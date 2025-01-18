@@ -35,3 +35,25 @@ function calculate(index) {
     premiumResult.textContent = "---";
   }
 }
+
+function updateTotal() {
+  // 各行の保険料単価と獲得件数を取得して計算
+  const rows = 4; // 行数
+  let totalPremium = 0;
+
+  for (let i = 1; i <= rows; i++) {
+    const premium = parseInt(document.getElementById(`premium-result${i}`).textContent.replace(/[^0-9]/g, ""), 10) || 0;
+    const count = parseInt(document.getElementById(`count${i}`).value, 10) || 0;
+    const rowTotal = premium * count;
+
+    // 非表示フィールドに計算結果を設定
+    document.getElementById(`total${i}`).value = rowTotal;
+
+    // 合計を加算
+    totalPremium += rowTotal;
+  }
+
+  // 合計を表示
+  document.getElementById("total-premium").textContent = totalPremium > 0 ? `${totalPremium.toLocaleString()}円` : "---";
+}
+
