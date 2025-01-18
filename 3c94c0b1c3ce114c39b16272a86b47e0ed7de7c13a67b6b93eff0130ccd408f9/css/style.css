@@ -731,13 +731,13 @@ main {
 }
 
 .select1 > select{
-   padding: 8px 4px;
+   padding: 8px 8px;
    margin: 5px;
    border: 1px solid #ccc;
    border-radius: 4px;
    font-size: 17px;
    color: #666666;
-   text-align: center;
+   text-align: left;
    background-color:#fff;	
 }
 
