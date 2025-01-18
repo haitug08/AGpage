@@ -46,6 +46,7 @@ function updateTotal() {
     const count = parseInt(document.getElementById(`count${i}`).value, 10) || 0;
     const classValue = document.getElementById(`class${i}`).value;
     const planValue = document.getElementById(`plan${i}`).value;
+    const timesValue = document.getElementById(`times${i}`).value;
 
     let rowCommission = 0;
 
@@ -86,24 +87,49 @@ function updateTotal() {
   // 手数料合計（税込）を表示
   document.getElementById("total-commission-tax").textContent = totalCommissionTax > 0 ? `${totalCommissionTax.toLocaleString()}円` : "---";
 
-  // 継続期間の保険料の合計を計算
+  // 継続期間の手数料を計算
   const continuityPeriod = parseInt(document.querySelector('select[name="continuation-period"]').value, 10) || 12; // デフォルトは12か月
   let continuityPremium = 0;
+  let continuityCommission = 0;
 
   for (let i = 1; i <= rows; i++) {
     const premium = parseInt(document.getElementById(`premium-result${i}`).textContent.replace(/[^0-9]/g, ""), 10) || 0;
     const count = parseInt(document.getElementById(`count${i}`).value, 10) || 0;
+    const classValue = document.getElementById(`class${i}`).value;
+    const planValue = document.getElementById(`plan${i}`).value;
+    const timesValue = document.getElementById(`times${i}`).value;
+
+    let rowCommission = 0;
+
+    // 区分が個人事業主の場合
+    if (classValue === "1") {
+      if (planValue === "1") {
+        rowCommission = count * 5000; // ライト: 1件5000円
+      } else if (planValue === "2") {
+        rowCommission = count * 10000; // スタンダード: 1件10000円
+      }
+    } else {
+      // 他の区分の場合は保険料 × 30%
+      rowCommission = premium * count * 0.3;
+    }
+
     const rowTotal = premium * count;
 
-    continuityPremium += rowTotal;
+    // 月払の場合
+    if (timesValue === "1") {
+      // 月払では獲得した件数が次月以降に加算される
+      continuityPremium += rowTotal * continuityPeriod; // 継続期間分の累計
+      continuityCommission += rowCommission * continuityPeriod; // 継続期間分の手数料累計
+    } else if (timesValue === "2") {
+      // 年払の場合、年払いの契約が次年以降に加算される
+      continuityPremium += rowTotal * (count * 1); // 年払いの合計
+      continuityCommission += rowCommission * 1; // 年払いの手数料
+    }
   }
 
-  // 継続期間の保険料合計を表示
-  const continuityPremiumTotal = continuityPremium * continuityPeriod;
-  document.getElementById("continuation-premium").textContent = continuityPremiumTotal > 0 ? `${continuityPremiumTotal.toLocaleString()}円` : "---";
-
-  // 継続期間の手数料合計（税込）を計算して表示
-  const continuityCommission = totalCommission * continuityPeriod;
+  // 継続期間の手数料合計（税込）を表示
   const continuityCommissionTax = continuityCommission * (1 + taxRate);
+  document.getElementById("continuation-premium").textContent = continuityPremium > 0 ? `${continuityPremium.toLocaleString()}円` : "---";
   document.getElementById("continuation-commission-tax").textContent = continuityCommissionTax > 0 ? `${continuityCommissionTax.toLocaleString()}円` : "---";
 }
+
