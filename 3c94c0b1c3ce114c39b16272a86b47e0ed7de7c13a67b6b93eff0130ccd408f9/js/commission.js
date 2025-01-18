@@ -86,20 +86,22 @@ function updateTotal() {
   // 手数料合計（税込）を表示
   document.getElementById("total-commission-tax").textContent = totalCommissionTax > 0 ? `${totalCommissionTax.toLocaleString()}円` : "---";
 
+  // 継続期間の手数料を計算
+  const continuityPeriod = parseInt(document.querySelector('select[name="continuity-period"]').value, 10) || 12; // デフォルトは12か月
+  let continuityCommission = 0;
 
-  // 継続期間を考慮した計算
-  const continuationPeriod = parseInt(document.getElementById("continuation-period").value, 10) || 12;
-  let continuationPremium = 0;
-
-  for (let month = 1; month <= continuationPeriod; month++) {
-    continuationPremium += totalPremium * month;
+  if (classValue === "1") {
+    // 個人事業主の場合、手数料は1件分で計算し、継続期間中に足し算
+    const perMonthCommission = rowCommission; // 1件分の手数料
+    continuityCommission = perMonthCommission * continuityPeriod;
+  } else {
+    // 法人の場合、継続期間中の保険料累計を基に手数料を計算
+    const perMonthPremium = premium * count;
+    const perMonthCommission = perMonthPremium * 0.3; // 月払い手数料
+    continuityCommission = perMonthCommission * continuityPeriod;
   }
 
-  const continuationCommission = continuationPremium * 0.3;
-  const continuationCommissionTax = continuationCommission * (1 + taxRate);
-
-  // 継続の結果を表示
-  document.getElementById("continuation-premium").textContent = continuationPremium > 0 ? `${continuationPremium.toLocaleString()}円` : "---";
-  document.getElementById("continuation-commission-tax").textContent = continuationCommissionTax > 0 ? `${continuationCommissionTax.toLocaleString()}円` : "---";
+  // 継続期間の手数料合計（税込）を表示
+  const continuityCommissionTax = continuityCommission * (1 + taxRate);
+  document.getElementById("continuity-commission-tax").textContent = continuityCommissionTax > 0 ? `${continuityCommissionTax.toLocaleString()}円` : "---";
 }
-
