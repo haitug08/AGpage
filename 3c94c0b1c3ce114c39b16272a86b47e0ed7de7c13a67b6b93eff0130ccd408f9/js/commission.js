@@ -56,11 +56,18 @@ function updateTotal() {
     totalCommission += rowTotal * 0.3;
   }
 
+  // 消費税を計算
+  const taxRate = 0.1; // 消費税10%
+  const totalCommissionTax = totalCommission * (1 + taxRate);
+
   // 保険料合計を表示
   document.getElementById("total-premium").textContent = totalPremium > 0 ? `${totalPremium.toLocaleString()}円` : "---";
 
   // 手数料合計を表示
   document.getElementById("total-commission").textContent = totalCommission > 0 ? `${totalCommission.toLocaleString()}円` : "---";
+
+  // 手数料合計（税込）を表示
+  document.getElementById("total-commission-tax").textContent = totalCommissionTax > 0 ? `${totalCommissionTax.toLocaleString()}円` : "---";
 }
 
 
