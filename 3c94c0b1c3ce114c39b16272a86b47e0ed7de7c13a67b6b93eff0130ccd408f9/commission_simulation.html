@@ -36,13 +36,13 @@
  <h2>手数料シミュレーション</h2>
 
  <form class="form">   
-  <table class="ta1">
+  <table class="ta1" style="width: 600px;">
    <caption>選択してください</caption>
     <tr>
      <th>委託区分</th>
       <td>
        <div class="select1">
-         <select id="consign1" name="consign" onchange="" style="width: 300px;">
+         <select id="consign1" name="consign" onchange="" style="width: 250px;">
           <option value=" ">---</option>
           <option value="1">代理店</option>
           <option value="2">開拓代理店</option>
@@ -217,23 +217,24 @@
 </div>
 
   
-<table class="ta1">
+<table class="ta1" style="width: 600px;">
  <caption>シミュレーション結果</caption>
-    <tr>
-    <th>継続期間</th>
-    <td colspan="3">
+ <tr>
+   <th>継続期間</th>
+   <td>
      <div class="number1">
       <input id="" type="number" name="number_months" value="0" />か月継続
      </div>     
-    </td>
-   </tr>
+   </td>
+ </tr>
  <tr>
-   <th>保険料合計（非課税）</th>
+   <th>保険料合計</th>
    <td id="total-premium">---</td>
+ </tr>
+ <tr>
    <th>手数料合計（税別）</th>
    <td id="total-commission">---</td>
  </tr>
-
  </table>  
  </form>
 </section>
