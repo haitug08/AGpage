@@ -93,9 +93,10 @@
        </div>
       </td>
     <td id="premium-result1">---</td>
+    <input type="hidden" id="total1" value="0" />
     <td>
-     <div class="number1">
-      <input id="" type="number" name="" value="0" />
+     <div class="number1"> 
+       <input id="count1" type="number" name="count1" value="0" onchange="updateTotal()" />
      </div>
     </td>   
    </tr>
@@ -222,7 +223,7 @@
  <caption>シミュレーション結果</caption>
  <tr>
     <th>保険料合計</th>
-    <td id="">---</td>
+    <td id="total-premium">---</td>
  </tr>
 
  <tr>
