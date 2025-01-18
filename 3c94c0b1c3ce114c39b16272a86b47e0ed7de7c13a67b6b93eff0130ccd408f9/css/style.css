@@ -421,6 +421,11 @@ footer .pr {display: block;}
 	display: inline-block; /* 要素の幅を内容に合わせる */
 	margin: 0 auto; /* 左右の余白を自動設定して中央揃え */
 }
+.ta1 td .number1 {
+	display: inline-block; /* 要素の幅を内容に合わせる */
+	margin: 0 auto; /* 左右の余白を自動設定して中央揃え */
+}
+
 
 .ta2 caption {
 	font-weight: bold;			/*太字に*/
@@ -768,6 +773,24 @@ main {
    background-color:#fff;
    width: 150px;
 }
+
+.number1{
+   display: flex;
+   width: 100%;
+   align-items: center;
+}
+
+.number1 > input {
+   padding: 8px 8px;
+   margin: 5px;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   font-size: 17px;
+   color: #666666;
+   text-align: left;
+   background-color:#fff;	
+}
+
 
 .ws{
    background-color:#fff;
