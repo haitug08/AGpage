@@ -41,6 +41,12 @@ function updateTotal() {
   let totalPremium = 0;
   let totalCommission = 0;
 
+  // 継続期間の取得
+  const continuityPeriod = parseInt(document.querySelector('select[name="continuation-period"]').value, 10) || 12; // デフォルトは12か月
+  
+  let continuityCommission = 0;
+  let continuityCommissionTax = 0;
+
   for (let i = 1; i <= rows; i++) {
     const premium = parseInt(document.getElementById(`premium-result${i}`).textContent.replace(/[^0-9]/g, ""), 10) || 0;
     const count = parseInt(document.getElementById(`count${i}`).value, 10) || 0;
@@ -71,6 +77,15 @@ function updateTotal() {
 
     // 手数料の合計を加算
     totalCommission += rowCommission;
+
+    // 継続期間の手数料計算
+    if (classValue === "1") {
+      continuityCommission += rowCommission * continuityPeriod; // 個人事業主
+    } else {
+      const perMonthPremium = premium * count;
+      const perMonthCommission = perMonthPremium * 0.3;
+      continuityCommission += perMonthCommission * continuityPeriod; // 法人
+    }
   }
 
   // 消費税を計算
@@ -86,22 +101,7 @@ function updateTotal() {
   // 手数料合計（税込）を表示
   document.getElementById("total-commission-tax").textContent = totalCommissionTax > 0 ? `${totalCommissionTax.toLocaleString()}円` : "---";
 
-  // 継続期間の手数料を計算
-  const continuityPeriod = parseInt(document.querySelector('select[name="continuity-period"]').value, 10) || 12; // デフォルトは12か月
-  let continuityCommission = 0;
-
-  if (classValue === "1") {
-    // 個人事業主の場合、手数料は1件分で計算し、継続期間中に足し算
-    const perMonthCommission = rowCommission; // 1件分の手数料
-    continuityCommission = perMonthCommission * continuityPeriod;
-  } else {
-    // 法人の場合、継続期間中の保険料累計を基に手数料を計算
-    const perMonthPremium = premium * count;
-    const perMonthCommission = perMonthPremium * 0.3; // 月払い手数料
-    continuityCommission = perMonthCommission * continuityPeriod;
-  }
-
   // 継続期間の手数料合計（税込）を表示
-  const continuityCommissionTax = continuityCommission * (1 + taxRate);
-  document.getElementById("continuity-commission-tax").textContent = continuityCommissionTax > 0 ? `${continuityCommissionTax.toLocaleString()}円` : "---";
+  continuityCommissionTax = continuityCommission * (1 + taxRate);
+  document.getElementById("continuation-commission-tax").textContent = continuityCommissionTax > 0 ? `${continuityCommissionTax.toLocaleString()}円` : "---";
 }
