@@ -372,7 +372,7 @@ footer .pr {display: block;}
 
 /*ボタンのマウスオン時（inputタグ使用時）*/
 .btn input:hover,
-.btn button:hover; {
+.btn button:hover {
 	cursor: pointer;
 	opacity: 0.6;	/*冒頭のリンクテキストのhoverと合わせました*/
 }
