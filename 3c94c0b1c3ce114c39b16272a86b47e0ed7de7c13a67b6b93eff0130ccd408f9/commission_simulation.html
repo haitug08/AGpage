@@ -210,24 +210,23 @@
       <input id="count4" type="number" name="count4" value="0" onchange="updateTotal()" />
      </div>
     </td>    </tr>
-   <tr>
-    <th colspan="2">継続期間</th>
-    <td colspan="2">
-     <div class="number1">
-      <input id="" type="number" name="number_months" value="0" />
-     </div>     
-    </td>
-   <td colspan="1">か月継続</td>
-   </tr>
   </table>
 
 <div class="btn">
- <button id="button" onclick="updateTotal()">計算</button>
+ <button id="button" onclick="updateTotal()">計　算</button>
 </div>
 
   
 <table class="ta1">
  <caption>シミュレーション結果</caption>
+    <tr>
+    <th>継続期間</th>
+    <td>
+     <div class="number1">
+      <input id="" type="number" name="number_months" value="0" />か月継続
+     </div>     
+    </td>
+   </tr>
  <tr>
     <th>保険料合計</th>
     <td id="total-premium">---</td>
