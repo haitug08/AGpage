@@ -782,13 +782,14 @@ main {
 
 .number1 > input {
    padding: 8px 8px;
-   margin: 5px;
+   margin: 5px; 
    border: 1px solid #ccc;
    border-radius: 4px;
    font-size: 17px;
    color: #666666;
    text-align: left;
-   background-color:#fff;	
+   background-color:#fff;
+   width: 60px;
 }
 
 
