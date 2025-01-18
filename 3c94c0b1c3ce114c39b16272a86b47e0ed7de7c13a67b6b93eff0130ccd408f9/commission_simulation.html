@@ -1,1 +1,131 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>代理店ページ｜Bonobo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
+<meta name="description" content="">
+<link rel="stylesheet" href="css/style.css">
+<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+</head>
 
+<body>
+
+<div id="container">
+
+<header>
+
+<h1 id="logo"><a href="index.html"><img src="images/logo.png" alt=""></a></h1>
+
+<div id="menubar_hdr">
+<span></span><span></span><span></span>
+</div>
+<!--/#menubar_hdr-->
+
+</header>
+
+<div id="menubar">
+<div id="navigation"></div>
+</div>
+ <!--/#menubar-->
+
+<main>
+
+<section>
+ <h2>保険料見積</h2>
+
+ <form class="form">   
+  <table class="ta1" style="max-width: 800px;">
+   <caption>選択してください</caption>
+    <tr>
+     <th>区分</th>
+      <td>
+       <div class="select1">
+         <select id="class1" name="class" onchange="calculate()" style="width: 300px;">
+          <option value=" ">---</option>
+          <option value="2">法人A（100名以上300名未満）</option>
+          <option value="3">法人B（10名以上100名未満）</option>
+          <option value="4">法人C（10名未満）</option>
+          <option value="1">個人事業主</option>
+         </select>
+       </div>
+      </td>
+    </tr>
+    <tr>
+     <th>プラン</th>
+      <td>
+       <div class="select1">
+         <select id="plan1" name="plan" onchange="calculate()" style="width: 300px;">
+          <option value=" ">---</option>
+          <option value="1">ライト</option>
+          <option value="2">スタンダード</option>
+         </select>
+       </div>
+      </td>
+    </tr>
+    <tr>
+     <th>払込回数</th>
+      <td>
+       <div class="select1">
+         <select id="times1" name="times" onchange="calculate()" style="width: 300px;">
+          <option value="1">月払</option>
+          <option value="2">年払</option>
+         </select>
+       </div>
+      </td>
+    </tr>       
+   </table>
+
+<table class="ta1" style="max-width: 800px;">
+ <caption>見積結果</caption>
+ <tr>
+    <th>保険料</th>
+    <td id="premium-result">---</td>
+ </tr>
+ </table>
+
+<table class="ta1" style="max-width: 800px;">
+ <caption>補償内容</caption>
+ <tr>
+    <th rowspan="2">保険金額</th>
+    <th>法律相談料保険金</th>
+    <td id="legal-consultation-result">---</td>
+ </tr>
+ <tr>
+    <th>弁護士費用保険金</th>
+    <td id="attorney-fee-result">---</td>
+ </tr>
+ <tr>
+  <th>特約</th>
+  <td id="special-clause-result" colspan="2">---</td>
+ </tr>
+</table>
+
+  
+ </form>
+</section>
+</main>
+
+  
+<footer>
+<small>Copyright 2025 ASHIRO Small Amount and Short Term Insurance Co., Ltd.</small>
+<span class="pr"><a href="https://template-party.com/" target="_blank">《Web Design:Template-Party》</a></span>
+</footer>
+
+</div>
+<!--/#container-->
+
+<!--jQueryの読み込み-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!--このテンプレート専用のスクリプト-->
+<script src="js/main.js"></script>
+<script src="js/premium.js"></script>
+  
+<!--ページの上部へ戻るボタン-->
+<div class="pagetop"><a href="#"><i class="fas fa-angle-double-up"></i></a></div>
+  
+
+</body>
+</html>
