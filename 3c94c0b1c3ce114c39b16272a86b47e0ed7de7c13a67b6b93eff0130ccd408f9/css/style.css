@@ -349,10 +349,11 @@ footer .pr {display: block;}
 ---------------------------------------------------------------------------*/
 /*ボタンを囲むブロック*/
 .btn {
-	text-align: left;	/*内容をセンタリング*/
-	width: 50%;
-	min-width: 250px;
+	text-align: center;	/*内容をセンタリング*/
 	margin-bottom: 50px;
+	margin-left: auto;
+	margin-right: auto;
+
 }
 
 /*ボタン*/
@@ -361,7 +362,7 @@ footer .pr {display: block;}
 .btn button {
 	display: inline-block;text-decoration: none;border: none;
 	border-radius: 3px;		/*角丸のサイズ。ほんの少しだけ角が丸くなります。*/
-	padding: 10px 40px;	/*上下、左右への余白。*/
+	padding: 10px 80px;	/*上下、左右への余白。*/
 	box-shadow: 2px 2px 5px rgba(0,0,0,0.2);	/*ボックスの影。右へ、下へ、ぼかし幅の順。0,0,0は黒の事で0.2は色が20%出た状態。*/
 	font-size: 1rem;		/*文字サイズ。remの単位についてはテンプレート内の解説をお読み下さい。*/
 	background: #91b3b8;	/*背景色*/
