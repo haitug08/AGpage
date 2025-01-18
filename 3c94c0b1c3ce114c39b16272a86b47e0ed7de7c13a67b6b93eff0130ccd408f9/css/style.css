@@ -1288,7 +1288,7 @@ main {
  margin:0 0 0 10px;
 }
 
-#premium-result {
+#premium-result, #total-premium, #total-commission {
  font-weight: bold;
  font-size: 170%;
  color:#72898c;
