@@ -4,6 +4,7 @@ function calculate() {
     { classId: "class1-row1", planId: "plan1-row1", timesId: "times1-row1", resultId: "premium-result-row1", countId: "count-row1" },
     { classId: "class1-row2", planId: "plan1-row2", timesId: "times1-row2", resultId: "premium-result-row2", countId: "count-row2" },
     { classId: "class1-row3", planId: "plan1-row3", timesId: "times1-row3", resultId: "premium-result-row3", countId: "count-row3" },
+    { classId: "class1-row4", planId: "plan1-row4", timesId: "times1-row4", resultId: "premium-result-row4", countId: "count-row4" },
     // 必要な行を追加
   ];
 
