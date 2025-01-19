@@ -42,25 +42,35 @@ document.addEventListener("DOMContentLoaded", function () {
   const inputFields = document.querySelectorAll("select, input");
   const calculateButton = document.getElementById("button");
 
-  // 初期状態で結果を非表示
-function hideSimulationResults() {
-  simulationResults.forEach((result) => {
-    result.classList.remove("visible");
-    result.classList.add("hidden");
-  });
-}
+  // 結果を非表示にする関数
+  function hideSimulationResults() {
+    simulationResults.forEach((result) => {
+      result.classList.remove("visible");
+      result.classList.add("hidden");
+    });
+  }
 
-  // ボタンをクリックしたときに結果を表示
-function showSimulationResults() {
-  simulationResults.forEach((result) => {
-    result.classList.remove("hidden");
-    result.classList.add("visible");
-  });
-}
+  // 結果を表示する関数
+  function showSimulationResults() {
+    simulationResults.forEach((result) => {
+      result.classList.remove("hidden");
+      result.classList.add("visible");
+    });
+  }
 
-  // 入力変更時に結果を非表示
+  // 除外対象のIDを配列で指定
+  const excludedIds = ["continue1"];
+
+  // 入力変更時の処理
   inputFields.forEach((field) => {
-    field.addEventListener("change", hideSimulationResults);
+    field.addEventListener("change", function () {
+      // 除外対象なら何もしない
+      if (excludedIds.includes(field.id)) {
+        console.log("除外対象のフィールドが変更されました");
+        return;
+      }
+      hideSimulationResults();
+    });
   });
 
   // ボタンイベントの登録
@@ -72,6 +82,7 @@ function showSimulationResults() {
   // 初期化
   hideSimulationResults();
 });
+
 
 
 
