@@ -43,20 +43,20 @@ document.addEventListener("DOMContentLoaded", function () {
   const calculateButton = document.getElementById("button");
 
   // 初期状態で結果を非表示
-  function hideSimulationResults() {
-    simulationResults.forEach((result) => {
-      result.style.display = "none";
-    });
-    console.log("結果を非表示にしました");
-  }
+function hideSimulationResults() {
+  simulationResults.forEach((result) => {
+    result.classList.remove("visible");
+    result.classList.add("hidden");
+  });
+}
 
   // ボタンをクリックしたときに結果を表示
-  function showSimulationResults() {
-    simulationResults.forEach((result) => {
-      result.style.display = "block";
-    });
-    console.log("結果を表示しました");
-  }
+function showSimulationResults() {
+  simulationResults.forEach((result) => {
+    result.classList.remove("hidden");
+    result.classList.add("visible");
+  });
+}
 
   // 入力変更時に結果を非表示
   inputFields.forEach((field) => {
