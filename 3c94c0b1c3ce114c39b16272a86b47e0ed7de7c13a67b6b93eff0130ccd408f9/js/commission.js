@@ -36,32 +36,43 @@ function calculate(index) {
   }
 }
 
+
 document.addEventListener("DOMContentLoaded", function () {
   const simulationResults = document.querySelectorAll(".simulation-result");
   const inputFields = document.querySelectorAll("select, input");
+  const calculateButton = document.getElementById("button");
 
   // 初期状態で結果を非表示
   function hideSimulationResults() {
     simulationResults.forEach((result) => {
-      result.classList.add("hidden");
+      result.style.display = "none";
     });
+    console.log("結果を非表示にしました");
   }
 
   // ボタンをクリックしたときに結果を表示
-  document.getElementById("button").addEventListener("click", function () {
+  function showSimulationResults() {
     simulationResults.forEach((result) => {
-      result.classList.remove("hidden");
+      result.style.display = "block";
     });
-  });
+    console.log("結果を表示しました");
+  }
 
   // 入力変更時に結果を非表示
   inputFields.forEach((field) => {
     field.addEventListener("change", hideSimulationResults);
   });
 
+  // ボタンイベントの登録
+  calculateButton.addEventListener("click", function () {
+    console.log("計算ボタンがクリックされました");
+    showSimulationResults();
+  });
+
   // 初期化
   hideSimulationResults();
 });
+
 
 
 function updateTotal() {
