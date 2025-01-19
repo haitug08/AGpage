@@ -36,6 +36,34 @@ function calculate(index) {
   }
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+  const simulationResults = document.querySelectorAll(".simulation-result");
+  const inputFields = document.querySelectorAll("select, input");
+
+  // 初期状態で結果を非表示
+  function hideSimulationResults() {
+    simulationResults.forEach((result) => {
+      result.classList.add("hidden");
+    });
+  }
+
+  // ボタンをクリックしたときに結果を表示
+  document.getElementById("button").addEventListener("click", function () {
+    simulationResults.forEach((result) => {
+      result.classList.remove("hidden");
+    });
+  });
+
+  // 入力変更時に結果を非表示
+  inputFields.forEach((field) => {
+    field.addEventListener("change", hideSimulationResults);
+  });
+
+  // 初期化
+  hideSimulationResults();
+});
+
+
 function updateTotal() {
   const rows = 4; // 行数
   let totalPremium = 0;
@@ -89,29 +117,4 @@ function updateTotal() {
 
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  const simulationResults = document.querySelectorAll(".simulation-result");
-  const inputFields = document.querySelectorAll("select, input");
 
-  // 初期状態で結果を非表示
-  function hideSimulationResults() {
-    simulationResults.forEach((result) => {
-      result.classList.add("hidden");
-    });
-  }
-
-  // ボタンをクリックしたときに結果を表示
-  document.getElementById("button").addEventListener("click", function () {
-    simulationResults.forEach((result) => {
-      result.classList.remove("hidden");
-    });
-  });
-
-  // 入力変更時に結果を非表示
-  inputFields.forEach((field) => {
-    field.addEventListener("change", hideSimulationResults);
-  });
-
-  // 初期化
-  hideSimulationResults();
-});
