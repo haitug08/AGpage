@@ -1352,7 +1352,12 @@ main {
 }
 
 .hidden {
-  display: none;
+  visibility: hidden;
+  height: 0;
+}
+.visible {
+  visibility: visible;
+  height: auto;
 }
 
 @media screen and (max-width:899px) {
