@@ -111,3 +111,4 @@ function updateTotal() {
   document.getElementById("total-commission-tax").textContent = totalCommissionTax > 0 ? `${totalCommissionTax.toLocaleString()}円` : "---";
 }
 
+
