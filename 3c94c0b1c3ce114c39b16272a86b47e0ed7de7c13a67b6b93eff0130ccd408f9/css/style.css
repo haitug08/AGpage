@@ -1360,6 +1360,16 @@ main {
   height: auto;
 }
 
+.btn2 {
+	border: none;
+        padding: 7px 90px;
+        border-radius: 5px;
+        font-weight: bold;
+        margin: 5px;
+        width: 270px;
+}
+
+
 @media screen and (max-width:899px) {
 .col_width {
 	width: 50%;
