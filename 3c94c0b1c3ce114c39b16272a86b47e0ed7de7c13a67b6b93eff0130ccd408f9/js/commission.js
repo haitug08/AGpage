@@ -106,10 +106,7 @@ function updateTotal() {
         rowCommission = count * 10000; // スタンダード: 1件10000円
       }
     } 
-    // 区分が開拓代理店の場合
-    else if (classValue === "2") {
-      rowCommission = premium * count * 0.05; // 保険料の5%
-    } 
+ 
     // その他の区分（法人A, B, C）の場合
     else {
       rowCommission = premium * count * 0.3; // 保険料 × 30%
