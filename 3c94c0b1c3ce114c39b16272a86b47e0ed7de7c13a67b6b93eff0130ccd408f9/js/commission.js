@@ -95,19 +95,10 @@ function updateTotal() {
     const classValue = document.getElementById(`class${i}`).value;
     const planValue = document.getElementById(`plan${i}`).value;
     const timesValue = document.getElementById(`times${i}`).value;
-    const consignValue = document.getElementById(`consign${i}`).value; // 委託区分の値を取得
 
     let rowCommission = 0;
 
-    // 委託区分が開拓代理店の場合
-    if (consignValue === "2") {
-      rowCommission = premium * count * 0.05; // 保険料 × 5%
-    } 
-
-    // 委託区分が代理店の場合
-    else if (consignValue === "1") {
-      // 区分が個人事業主の場合
-      if (classValue === "1") {
+    else if (classValue === "1") {
         if (planValue === "1") {
           rowCommission = count * 5000; // ライト: 1件5000円
         } else if (planValue === "2") {
