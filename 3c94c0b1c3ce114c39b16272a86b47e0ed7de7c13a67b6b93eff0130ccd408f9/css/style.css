@@ -612,7 +612,7 @@ main {
 
 /*bg1設定。サンプルテンプレートでは「サービス」と書いてあるマーク*/
 #new dt span.icon-bg1 {
-	background: #91b3b8;	/*背景色*/
+	background: #0090B0;	/*背景色*/
 }
 
 /*記事(dd)設定*/
