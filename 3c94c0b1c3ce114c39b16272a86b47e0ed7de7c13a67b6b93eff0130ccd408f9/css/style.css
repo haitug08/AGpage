@@ -1360,7 +1360,7 @@ main {
   height: auto;
 }
 
-.btn2 {
+.btn2 button {
 	border: none;
         padding: 7px 90px;
         border-radius: 5px;
