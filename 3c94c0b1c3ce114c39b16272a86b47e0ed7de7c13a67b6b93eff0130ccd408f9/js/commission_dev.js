@@ -82,8 +82,8 @@ function updateTotal() {
     const premium = parseInt(document.getElementById(`premium-result${i}`).textContent.replace(/[^0-9]/g, ""), 10) || 0;
     const count = parseInt(document.getElementById(`count${i}`).value, 10) || 0;
 
-    // 手数料を保険料 × 5%で統一
-    const rowCommission = premium * count * 0.05;
+    // 手数料を保険料 × 5%で統一し、小数点以下を切り捨て
+    const rowCommission = Math.floor(premium * count * 0.05);
 
     const rowTotal = premium * count;
 
