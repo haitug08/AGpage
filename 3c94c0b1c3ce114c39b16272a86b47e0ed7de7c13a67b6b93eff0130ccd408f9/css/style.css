@@ -1375,6 +1375,11 @@ main {
   font-style: normal;
 }
 
+.zen-kaku-gothic-new-regular {
+  font-family: "Zen Kaku Gothic New", serif;
+  font-weight: 400;
+  font-style: normal;
+}
 
 
 @media screen and (max-width:899px) {
