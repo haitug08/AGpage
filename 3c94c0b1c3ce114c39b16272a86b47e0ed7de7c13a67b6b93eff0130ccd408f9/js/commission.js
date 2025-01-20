@@ -95,21 +95,29 @@ function updateTotal() {
     const classValue = document.getElementById(`class${i}`).value;
     const planValue = document.getElementById(`plan${i}`).value;
     const timesValue = document.getElementById(`times${i}`).value;
+    const consignValue = document.getElementById(`consign${i}`).value; // 委託区分の値を取得
 
     let rowCommission = 0;
 
-    // 区分が個人事業主の場合
-    if (classValue === "1") {
-      if (planValue === "1") {
-        rowCommission = count * 5000; // ライト: 1件5000円
-      } else if (planValue === "2") {
-        rowCommission = count * 10000; // スタンダード: 1件10000円
-      }
+    // 委託区分が開拓代理店の場合
+    if (consignValue === "2") {
+      rowCommission = premium * count * 0.05; // 保険料 × 5%
     } 
- 
-    // その他の区分（法人A, B, C）の場合
-    else {
-      rowCommission = premium * count * 0.3; // 保険料 × 30%
+
+    // 委託区分が代理店の場合
+    else if (consignValue === "1") {
+      // 区分が個人事業主の場合
+      if (classValue === "1") {
+        if (planValue === "1") {
+          rowCommission = count * 5000; // ライト: 1件5000円
+        } else if (planValue === "2") {
+          rowCommission = count * 10000; // スタンダード: 1件10000円
+        }
+      } 
+      // その他の区分（法人A, B, C）の場合
+      else {
+        rowCommission = premium * count * 0.3; // 保険料 × 30%
+      }
     }
 
     const rowTotal = premium * count;
@@ -137,4 +145,5 @@ function updateTotal() {
   // 手数料合計（税込）を表示
   document.getElementById("total-commission-tax").textContent = totalCommissionTax > 0 ? `${totalCommissionTax.toLocaleString()}円` : "---";
 }
+
 
