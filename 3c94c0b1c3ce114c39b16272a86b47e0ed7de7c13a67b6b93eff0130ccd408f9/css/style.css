@@ -364,7 +364,7 @@ footer .pr {display: block;}
 	padding: 10px 100px;	/*上下、左右への余白。*/
 	box-shadow: 2px 2px 5px rgba(0,0,0,0.2);	/*ボックスの影。右へ、下へ、ぼかし幅の順。0,0,0は黒の事で0.2は色が20%出た状態。*/
 	font-size: 1rem;		/*文字サイズ。remの単位についてはテンプレート内の解説をお読み下さい。*/
-	background: #91b3b8;	/*背景色*/
+	background: #0090B0;	/*背景色*/
 	letter-spacing: 0.1em;	/*文字間隔を少し広くする指定*/
 	color: #fff;			/*文字色*/
 	transition: 0.3s;
