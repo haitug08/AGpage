@@ -84,8 +84,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-
-
 function updateTotal() {
   const rows = 4; // 行数
   let totalPremium = 0;
@@ -107,9 +105,14 @@ function updateTotal() {
       } else if (planValue === "2") {
         rowCommission = count * 10000; // スタンダード: 1件10000円
       }
-    } else {
-      // 他の区分の場合は保険料 × 30%
-      rowCommission = premium * count * 0.3;
+    } 
+    // 区分が開拓代理店の場合
+    else if (classValue === "2") {
+      rowCommission = premium * count * 0.05; // 保険料の5%
+    } 
+    // その他の区分（法人A, B, C）の場合
+    else {
+      rowCommission = premium * count * 0.3; // 保険料 × 30%
     }
 
     const rowTotal = premium * count;
@@ -136,7 +139,5 @@ function updateTotal() {
 
   // 手数料合計（税込）を表示
   document.getElementById("total-commission-tax").textContent = totalCommissionTax > 0 ? `${totalCommissionTax.toLocaleString()}円` : "---";
-
 }
-
 
