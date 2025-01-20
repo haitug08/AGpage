@@ -98,7 +98,7 @@ function updateTotal() {
 
     let rowCommission = 0;
 
-    else if (classValue === "1") {
+    if (classValue === "1") {
         if (planValue === "1") {
           rowCommission = count * 5000; // ライト: 1件5000円
         } else if (planValue === "2") {
