@@ -85,20 +85,23 @@ function updateTotal() {
     const count = parseInt(document.getElementById(`count${i}`).value, 10) || 0;
     const classValue = document.getElementById(`class${i}`).value;
     const planValue = document.getElementById(`plan${i}`).value;
-    const timesValue = document.getElementById(`times${i}`).value;
 
     let rowCommission = 0;
+    const taxRate = 0.1; // 消費税10%
 
-    // 区分が個人事業主の場合
-    if (classValue === "1") {
+    // 手数料計算
+    if (classValue === "1") { // 個人事業主
       if (planValue === "1") {
-        rowCommission = count * 5000; // ライト: 1件5000円
+        rowCommission = count * 5000 * (1 + taxRate); // ライト: 1件5,000円 + 税
       } else if (planValue === "2") {
-        rowCommission = count * 10000; // スタンダード: 1件10000円
+        rowCommission = count * 10000 * (1 + taxRate); // スタンダード: 1件10,000円 + 税
       }
-    } else {
-      // 他の区分の場合は保険料 × 30%
-      rowCommission = premium * count * 0.3;
+    } else { // 法人
+      if (planValue === "1") {
+        rowCommission = count * 10000 * (1 + taxRate); // ライト: 1件10,000円 + 税
+      } else if (planValue === "2") {
+        rowCommission = count * 20000 * (1 + taxRate); // スタンダード: 1件20,000円 + 税
+      }
     }
 
     const rowTotal = premium * count;
@@ -113,17 +116,13 @@ function updateTotal() {
     totalCommission += rowCommission;
   }
 
-  // 消費税を計算
-  const taxRate = 0.1; // 消費税10%
-  const totalCommissionTax = totalCommission * (1 + taxRate);
-
   // 保険料合計を表示
   document.getElementById("total-premium").textContent = totalPremium > 0 ? `${totalPremium.toLocaleString()}円` : "---";
 
   // 手数料合計を表示
   document.getElementById("total-commission").textContent = totalCommission > 0 ? `${totalCommission.toLocaleString()}円` : "---";
 
-  // 手数料合計（税込）を表示
-  document.getElementById("total-commission-tax").textContent = totalCommissionTax > 0 ? `${totalCommissionTax.toLocaleString()}円` : "---";
-
+  // 手数料合計（税込）を表示（税抜き金額に対して再度税を掛ける必要はない）
+  document.getElementById("total-commission-tax").textContent = totalCommission > 0 ? `${totalCommission.toLocaleString()}円` : "---";
 }
+
