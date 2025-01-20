@@ -1,8 +1,8 @@
 function calculate(index) {
   // 各選択肢の値を取得
-  const classValue = document.getElementById(`class${index}`).value;
-  const planValue = document.getElementById(`plan${index}`).value;
-  const timesValue = document.getElementById(`times${index}`).value;
+  const classValue = document.getElementById(class${index}).value;
+  const planValue = document.getElementById(plan${index}).value;
+  const timesValue = document.getElementById(times${index}).value;
 
   // 保険料の設定用オブジェクト
   const premiums = {
@@ -28,9 +28,9 @@ function calculate(index) {
   const premium = premiums[classValue]?.[planValue]?.[timesValue] || 0;
 
   // 結果を表示
-  const premiumResult = document.getElementById(`premium-result${index}`);
+  const premiumResult = document.getElementById(premium-result${index});
   if (premium) {
-    premiumResult.textContent = `${premium.toLocaleString()}円/${timesValue === "1" ? "月" : "年"}`;
+    premiumResult.textContent = ${premium.toLocaleString()}円/${timesValue === "1" ? "月" : "年"};
   } else {
     premiumResult.textContent = "---";
   }
@@ -90,15 +90,24 @@ function updateTotal() {
   let totalCommission = 0;
 
   for (let i = 1; i <= rows; i++) {
-    const premium = parseInt(document.getElementById(`premium-result${i}`).textContent.replace(/[^0-9]/g, ""), 10) || 0;
-    const count = parseInt(document.getElementById(`count${i}`).value, 10) || 0;
-    const classValue = document.getElementById(`class${i}`).value;
-    const planValue = document.getElementById(`plan${i}`).value;
-    const timesValue = document.getElementById(`times${i}`).value;
+    const premium = parseInt(document.getElementById(premium-result${i}).textContent.replace(/[^0-9]/g, ""), 10) || 0;
+    const count = parseInt(document.getElementById(count${i}).value, 10) || 0;
+    const classValue = document.getElementById(class${i}).value;
+    const planValue = document.getElementById(plan${i}).value;
+    const timesValue = document.getElementById(times${i}).value;
+    const consignValue = document.getElementById(consign${i}).value; // 委託区分の値を取得
 
     let rowCommission = 0;
 
-    if (classValue === "1") {
+    // 委託区分が開拓代理店の場合
+    if (consignValue === "2") {
+      rowCommission = premium * count * 0.05; // 保険料 × 5%
+    } 
+
+    // 委託区分が代理店の場合
+    else if (consignValue === "1") {
+      // 区分が個人事業主の場合
+      if (classValue === "1") {
         if (planValue === "1") {
           rowCommission = count * 5000; // ライト: 1件5000円
         } else if (planValue === "2") {
@@ -114,7 +123,7 @@ function updateTotal() {
     const rowTotal = premium * count;
 
     // 非表示フィールドに計算結果を設定
-    document.getElementById(`total${i}`).value = rowTotal;
+    document.getElementById(total${i}).value = rowTotal;
 
     // 保険料の合計を加算
     totalPremium += rowTotal;
@@ -128,13 +137,11 @@ function updateTotal() {
   const totalCommissionTax = totalCommission * (1 + taxRate);
 
   // 保険料合計を表示
-  document.getElementById("total-premium").textContent = totalPremium > 0 ? `${totalPremium.toLocaleString()}円` : "---";
+  document.getElementById("total-premium").textContent = totalPremium > 0 ? ${totalPremium.toLocaleString()}円 : "---";
 
   // 手数料合計を表示
-  document.getElementById("total-commission").textContent = totalCommission > 0 ? `${totalCommission.toLocaleString()}円` : "---";
+  document.getElementById("total-commission").textContent = totalCommission > 0 ? ${totalCommission.toLocaleString()}円 : "---";
 
   // 手数料合計（税込）を表示
-  document.getElementById("total-commission-tax").textContent = totalCommissionTax > 0 ? `${totalCommissionTax.toLocaleString()}円` : "---";
+  document.getElementById("total-commission-tax").textContent = totalCommissionTax > 0 ? ${totalCommissionTax.toLocaleString()}円 : "---";
 }
-
-
