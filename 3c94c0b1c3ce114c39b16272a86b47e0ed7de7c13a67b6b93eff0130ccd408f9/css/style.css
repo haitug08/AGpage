@@ -296,7 +296,7 @@ footer small {font-size: 100%;}
 
 footer {
 	font-size: 0.6rem;		/*文字サイズ。remの単位についてはテンプレート内の解説をお読み下さい。*/
-	background: #91b3b8;		/*背景色*/
+	background: #0090B0;		/*背景色*/
 	color: #fff;			/*文字色*/
 	text-align: center;		/*内容をセンタリング*/
 	padding: 10px;			/*ボックス内の余白*/
@@ -891,7 +891,7 @@ main {
 .ac-box label{
 	font-size: 14px;
 	text-align: left;
-	background: #91b3b8;
+	background: #0090B0;
 	margin: 10px;
 	line-height: 30px;
 	position: relative;
