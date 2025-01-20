@@ -1,8 +1,8 @@
 function calculate(index) {
   // 各選択肢の値を取得
-  const classValue = document.getElementById(class${index}).value;
-  const planValue = document.getElementById(plan${index}).value;
-  const timesValue = document.getElementById(times${index}).value;
+  const classValue = document.getElementById(`class${index}`).value;
+  const planValue = document.getElementById(`plan${index}`).value;
+  const timesValue = document.getElementById(`times${index}`).value;
 
   // 保険料の設定用オブジェクト
   const premiums = {
@@ -28,9 +28,9 @@ function calculate(index) {
   const premium = premiums[classValue]?.[planValue]?.[timesValue] || 0;
 
   // 結果を表示
-  const premiumResult = document.getElementById(premium-result${index});
+  const premiumResult = document.getElementById(`premium-result${index}`);
   if (premium) {
-    premiumResult.textContent = ${premium.toLocaleString()}円/${timesValue === "1" ? "月" : "年"};
+    premiumResult.textContent = `${premium.toLocaleString()}円/${timesValue === "1" ? "月" : "年"}`;
   } else {
     premiumResult.textContent = "---";
   }
@@ -42,35 +42,25 @@ document.addEventListener("DOMContentLoaded", function () {
   const inputFields = document.querySelectorAll("select, input");
   const calculateButton = document.getElementById("button");
 
-  // 結果を非表示にする関数
-  function hideSimulationResults() {
-    simulationResults.forEach((result) => {
-      result.classList.remove("visible");
-      result.classList.add("hidden");
-    });
-  }
+  // 初期状態で結果を非表示
+function hideSimulationResults() {
+  simulationResults.forEach((result) => {
+    result.classList.remove("visible");
+    result.classList.add("hidden");
+  });
+}
 
-  // 結果を表示する関数
-  function showSimulationResults() {
-    simulationResults.forEach((result) => {
-      result.classList.remove("hidden");
-      result.classList.add("visible");
-    });
-  }
+  // ボタンをクリックしたときに結果を表示
+function showSimulationResults() {
+  simulationResults.forEach((result) => {
+    result.classList.remove("hidden");
+    result.classList.add("visible");
+  });
+}
 
-  // 除外対象のIDを配列で指定
-  const excludedIds = ["continue1"];
-
-  // 入力変更時の処理
+  // 入力変更時に結果を非表示
   inputFields.forEach((field) => {
-    field.addEventListener("change", function () {
-      // 除外対象なら何もしない
-      if (excludedIds.includes(field.id)) {
-        console.log("除外対象のフィールドが変更されました");
-        return;
-      }
-      hideSimulationResults();
-    });
+    field.addEventListener("change", hideSimulationResults);
   });
 
   // ボタンイベントの登録
@@ -84,46 +74,37 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+
 function updateTotal() {
   const rows = 4; // 行数
   let totalPremium = 0;
   let totalCommission = 0;
 
   for (let i = 1; i <= rows; i++) {
-    const premium = parseInt(document.getElementById(premium-result${i}).textContent.replace(/[^0-9]/g, ""), 10) || 0;
-    const count = parseInt(document.getElementById(count${i}).value, 10) || 0;
-    const classValue = document.getElementById(class${i}).value;
-    const planValue = document.getElementById(plan${i}).value;
-    const timesValue = document.getElementById(times${i}).value;
-    const consignValue = document.getElementById(consign${i}).value; // 委託区分の値を取得
+    const premium = parseInt(document.getElementById(`premium-result${i}`).textContent.replace(/[^0-9]/g, ""), 10) || 0;
+    const count = parseInt(document.getElementById(`count${i}`).value, 10) || 0;
+    const classValue = document.getElementById(`class${i}`).value;
+    const planValue = document.getElementById(`plan${i}`).value;
+    const timesValue = document.getElementById(`times${i}`).value;
 
     let rowCommission = 0;
 
-    // 委託区分が開拓代理店の場合
-    if (consignValue === "2") {
-      rowCommission = premium * count * 0.05; // 保険料 × 5%
-    } 
-
-    // 委託区分が代理店の場合
-    else if (consignValue === "1") {
-      // 区分が個人事業主の場合
-      if (classValue === "1") {
-        if (planValue === "1") {
-          rowCommission = count * 5000; // ライト: 1件5000円
-        } else if (planValue === "2") {
-          rowCommission = count * 10000; // スタンダード: 1件10000円
-        }
-      } 
-      // その他の区分（法人A, B, C）の場合
-      else {
-        rowCommission = premium * count * 0.3; // 保険料 × 30%
+    // 区分が個人事業主の場合
+    if (classValue === "1") {
+      if (planValue === "1") {
+        rowCommission = count * 5000; // ライト: 1件5000円
+      } else if (planValue === "2") {
+        rowCommission = count * 10000; // スタンダード: 1件10000円
       }
+    } else {
+      // 他の区分の場合は保険料 × 30%
+      rowCommission = premium * count * 0.3;
     }
 
     const rowTotal = premium * count;
 
     // 非表示フィールドに計算結果を設定
-    document.getElementById(total${i}).value = rowTotal;
+    document.getElementById(`total${i}`).value = rowTotal;
 
     // 保険料の合計を加算
     totalPremium += rowTotal;
@@ -137,11 +118,13 @@ function updateTotal() {
   const totalCommissionTax = totalCommission * (1 + taxRate);
 
   // 保険料合計を表示
-  document.getElementById("total-premium").textContent = totalPremium > 0 ? ${totalPremium.toLocaleString()}円 : "---";
+  document.getElementById("total-premium").textContent = totalPremium > 0 ? `${totalPremium.toLocaleString()}円` : "---";
 
   // 手数料合計を表示
-  document.getElementById("total-commission").textContent = totalCommission > 0 ? ${totalCommission.toLocaleString()}円 : "---";
+  document.getElementById("total-commission").textContent = totalCommission > 0 ? `${totalCommission.toLocaleString()}円` : "---";
 
   // 手数料合計（税込）を表示
-  document.getElementById("total-commission-tax").textContent = totalCommissionTax > 0 ? ${totalCommissionTax.toLocaleString()}円 : "---";
+  document.getElementById("total-commission-tax").textContent = totalCommissionTax > 0 ? `${totalCommissionTax.toLocaleString()}円` : "---";
+
 }
+
