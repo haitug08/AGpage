@@ -127,26 +127,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="js/main.js"></script>
 <script src="js/premium.js"></script>
-<script src="js/modal.js"></script>
-
-<script>
-document.getElementById('button').addEventListener('click', function () {
-  const modal = document.getElementById('modal1');
-  if (modal) {
-    modal.classList.add('is-active');
-  }
-});
-
-const closeButtons = document.querySelectorAll('.js-modal-close');
-closeButtons.forEach(button => {
-  button.addEventListener('click', function () {
-    const modal = button.closest('.js-modal');
-    if (modal) {
-      modal.classList.remove('is-active');
-    }
-  });
-});
-</script>
-
+ 
 </body>
 </html>
