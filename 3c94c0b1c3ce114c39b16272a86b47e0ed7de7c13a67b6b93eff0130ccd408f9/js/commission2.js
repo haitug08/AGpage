@@ -83,16 +83,16 @@ function updateTotal() {
     const count = parseInt(document.getElementById(`count${i}`).value, 10) || 0;
     const classValue = document.getElementById(`class${i}`).value; // 区分を取得
 
+    const taxRate = 0.1; // 消費税10%
     let rowCommission = 0;
 
     if (classValue === "1") {
       // 区分が個人事業主の場合の手数料計算（3,000円 + 税）
       const singleCommission = 3000;
-      const taxRate = 0.1; // 消費税10%
       rowCommission = count * singleCommission * (1 + taxRate);
     } else {
-      // その他区分の手数料計算（保険料 × 5%）
-      rowCommission = premium * count * 0.05;
+      // その他区分の手数料計算（保険料 × 5% + 税）
+      rowCommission = premium * count * 0.05 * (1 + taxRate);
     }
 
     const rowTotal = premium * count;
