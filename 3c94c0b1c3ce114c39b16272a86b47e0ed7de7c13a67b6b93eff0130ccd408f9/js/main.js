@@ -129,21 +129,31 @@ function customCalculate() {
         document.querySelector(".open2").style.display = "none";
         document.querySelector(".open3").style.display = "none";
         document.querySelector(".open4").style.display = "none";
+        document.querySelector(".open5").style.display = "none";
     } else if (selectedOption === "change02") {
         document.querySelector(".open1").style.display = "none";
         document.querySelector(".open2").style.display = "block";
         document.querySelector(".open3").style.display = "none";
         document.querySelector(".open4").style.display = "none";
+        document.querySelector(".open5").style.display = "none";	    
     } else if (selectedOption === "change03") {
         document.querySelector(".open1").style.display = "none";
         document.querySelector(".open2").style.display = "none";
         document.querySelector(".open3").style.display = "block";
         document.querySelector(".open4").style.display = "none";
+        document.querySelector(".open5").style.display = "none";
     } else if (selectedOption === "change04") {
         document.querySelector(".open1").style.display = "none";
         document.querySelector(".open2").style.display = "none";
         document.querySelector(".open3").style.display = "none";
         document.querySelector(".open4").style.display = "block";
+        document.querySelector(".open5").style.display = "none";	    
+    } else if (selectedOption === "change05") {
+        document.querySelector(".open1").style.display = "none";
+        document.querySelector(".open2").style.display = "none";
+        document.querySelector(".open3").style.display = "none";
+        document.querySelector(".open4").style.display = "none";
+        document.querySelector(".open5").style.display = "block";
     }
 }
 
