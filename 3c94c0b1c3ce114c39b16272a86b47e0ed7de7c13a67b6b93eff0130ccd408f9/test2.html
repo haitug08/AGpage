@@ -31,14 +31,238 @@
 <div class="zen-kaku-gothic-new-regular">
 
 <section>
-
 <div class="btn">
  <button id="button" type="button" onclick="">計算</button>
 </div>
-
- 
 </section>
 
+<section>
+         <section>
+          <!-- モーダル本体 -->
+          <div class="modal js-modal" id="modal1">
+            <div class="modal-container">
+              <!-- モーダルを閉じるボタン -->
+              <div class="modal-close js-modal-close">×</div>
+              <!-- モーダル内部のコンテンツ -->
+              <div class="modal-content">
+                <h2 id="01">かんたんお見積り</h2>
+                <form class="form1">
+                  <span style="font-weight: bold;">契約年齢と性別、ご希望の加入コースを選択してください</span>
+                  <table class="ta2">
+                    <tr>
+                      <th>契約年齢
+                        <div class="tooltip1">
+                          <label class="helpbutton1">
+                          </label>
+                          <div class="description1">契約年齢とは責任開始日時点の年齢をいいます。 責任開始日は、申込受付完了が月初～15日の場合は翌月の1日、 16日～月末の場合は翌々月の1日となります。</div>
+                        </div>
+                      </th>
+                      <td>
+                        <div class="select1">
+                          <select id="contractor_age" name="contractor_age" onchange="calculate()" style="width: 90px;">
+                            <option value=" ">　</option>
+                            <option value="50">50歳</option>
+                            <option value="51">51歳</option>
+                            <option value="52">52歳</option>
+                            <option value="53">53歳</option>
+                            <option value="54">54歳</option>
+                            <option value="55">55歳</option>
+                            <option value="56">56歳</option>
+                            <option value="57">57歳</option>
+                            <option value="58">58歳</option>
+                            <option value="59">59歳</option>
+                            <option value="60">60歳</option>
+                            <option value="61">61歳</option>
+                            <option value="62">62歳</option>
+                            <option value="63">63歳</option>
+                            <option value="64">64歳</option>
+                            <option value="65">65歳</option>
+                            <option value="66">66歳</option>
+                            <option value="67">67歳</option>
+                            <option value="68">68歳</option>
+                            <option value="69">69歳</option>
+                            <option value="70">70歳</option>
+                            <option value="71">71歳</option>
+                            <option value="72">72歳</option>
+                            <option value="73">73歳</option>
+                            <option value="74">74歳</option>
+                            <option value="75">75歳</option>
+                            <option value="76">76歳</option>
+                            <option value="77">77歳</option>
+                            <option value="78">78歳</option>
+                            <option value="79">79歳</option>
+                            <option value="80">80歳</option>
+                            <option value="81">81歳</option>
+                            <option value="82">82歳</option>
+                            <option value="83">83歳</option>
+                            <option value="84">84歳</option>
+                            <option value="85">85歳</option>
+                            <option value="86">86歳</option>
+                            <option value="87">87歳</option>
+                            <option value="88">88歳</option>
+                            <option value="89">89歳</option>
+                            <option value="90">90歳</option>
+                            <option value="91">91歳</option>
+                            <option value="92">92歳</option>
+                            <option value="93">93歳</option>
+                            <option value="94">94歳</option>
+                            <option value="95">95歳</option>
+                            <option value="96">96歳</option>
+                            <option value="97">97歳</option>
+                            <option value="98">98歳</option>
+                            <option value="99">99歳</option>
+                          </select>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>性別</th>
+                      <td>
+                        <div class="radio1">
+                          <div style="display:none">
+                            <input type="radio" id="genderless" name="gender" onchange="calculate()" value="0" checked>
+                            <label for="genderless">未選択</label>
+                          </div>
+                          <input type="radio" id="male" name="gender" onchange="calculate()" value="1">
+                          <label for="male">男性</label>
+                          <input type="radio" id="female" name="gender" onchange="calculate()" value="2">
+                          <label for="female">女性</label>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>コース
+                        <div class="tooltip2">
+                          <label class="helpbutton2" style="background: #fff4e4; text-align: left; margin-left: 15px; margin-top: 15px;">
+                          </label>
+                          <div class="description2">保険金額定額コースは、受け取れる保険金の金額は変わらず、保険料は更新時の年齢によって毎年上がります。
+                            <br>保険料定額コースは、保険金額は更新時の年齢によって毎年減少しますが、支払う保険料は変わりません。</div>
+                        </div>
+                      </th>
+                      <td>
+                        <div class="radio1">
+                          <input type="radio" id="amount_fixed" name="course" onchange="customCalculate()" value="amount_fixed">
+                          <label for="amount_fixed" style="max-width: 200px; width: 90%;">保険金額固定コース</label>
+                          <input type="radio" id="premium_fixed" name="course" onchange="customCalculate()" value="premium_fixed">
+                          <label for="premium_fixed" style="max-width: 200px; width: 90%;">保険料定額コース</label>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                  <br>
+                  <div class="open1">
+                    <span style="font-weight: bold;">ご希望の保険金額と払込回数を選択してください</span>
+                    <table class="ta2">
+                      <tr>
+                        <th>保険金額</th>
+                        <td>
+                          <div class="radio1">
+                            <input type="radio" id="50" name="select_amount" onchange="calculate()" value="0" checked>
+                            <label for="50">50万円</label>
+                            <input type="radio" id="100" name="select_amount" onchange="calculate()" value="1">
+                            <label for="100">100万円</label>
+                            <input type="radio" id="200" name="select_amount" onchange="calculate()" value="2">
+                            <label for="200">200万円</label>
+                            <input type="radio" id="300" name="select_amount" onchange="calculate()" value="3">
+                            <label for="300">300万円</label>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>払込回数</th>
+                        <td>
+                          <div class="radio1">
+                            <input type="radio" id="month" name="times" onchange="calculate()" value="1" checked>
+                            <label for="month">月払</label>
+                            <input type="radio" id="year" name="times" onchange="calculate()" value="2">
+                            <label for="year">年払</label>
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
+                    <br>
+                    <table class="ta2">
+                      <span style="font-weight: bold;">見積結果</span>
+                      <tr>
+                        <th>保険料</th>
+                        <td>
+                          <div style="display:none">
+                            <input id="premium" type="text" readonly>
+                          </div>
+                          <div id="product" type="text" readonly style="font-weight: bold; font-size: 2.0em;">
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                  <div class="open2">
+                    <span style="font-weight: bold;">ご希望の保険料を選択してください</span>
+                    <table class="ta2">
+                      <tr>
+                        <th rowspan="2">保険料</th>
+                        <td>
+                          <div class="radio1">
+                            <input type="radio" id="1000" name="select_premium" onchange="calculate()" value="1" checked>
+                            <label for="1000">1,000円/月</label>
+                            <input type="radio" id="2000" name="select_premium" onchange="calculate()" value="2">
+                            <label for="2000">2,000円/月</label>
+                            <input type="radio" id="3000" name="select_premium" onchange="calculate()" value="3">
+                            <label for="3000">3,000円/月</label>
+                            <input type="radio" id="5000" name="select_premium" onchange="calculate()" value="4">
+                            <label for="5000">5,000円/月</label>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="radio1">
+                            <input type="radio" id="10000" name="select_premium" onchange="calculate()" value="5">
+                            <label for="10000">10,000円/年</label>
+                            <input type="radio" id="20000" name="select_premium" onchange="calculate()" value="6">
+                            <label for="20000">20,000円/年</label>
+                            <input type="radio" id="30000" name="select_premium" onchange="calculate()" value="7">
+                            <label for="30000">30,000円/年</label>
+                            <input type="radio" id="50000" name="select_premium" onchange="calculate()" value="8">
+                            <label for="50000">50,000円/年</label>
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
+                    <br>
+                    <table class="ta2">
+                      <span style="font-weight: bold;">見積結果</span>
+                      <tr>
+                        <th>保険金額</th>
+                        <td>
+                          <div style="display:none">
+                            <input id="amount" type="text" readonly>
+                          </div>
+                          <div id="product2" type="text" readonly style="font-weight: bold; font-size: 2.0em;">
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                  <br>
+                  <div class="open3">
+                    <ul class="asterisk" style="font-size: 90%;">
+                      <li>契約年齢とは責任開始日時点の年齢をいいます。</li>
+                      <li>責任開始日は、申込受付完了が月初～15日の場合は
+                        <span style="font-weight: bold;">翌月の1日</span>、16日～月末の場合は
+                        <span style="font-weight: bold;">翌々月の1日</span>となります。</li>
+                      <li>表示された見積結果は初年度の金額です。次年度以降は、更新日時点の年齢を基準に計算されます。</li>
+                      <li>引受不可と表示された場合、選択された条件でのお申し込みはできません。</li>
+                    </ul>
+                    <button class="button1" style="margin-top: 10px; translate: 25% -10%;">
+                      <a href="#05" style="text-decoration: none;" target="_blank">▶ 資料請求・お申込希望</a>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+</section>
   
 </div>
 </main>
