@@ -81,9 +81,19 @@ function updateTotal() {
   for (let i = 1; i <= rows; i++) {
     const premium = parseInt(document.getElementById(`premium-result${i}`).textContent.replace(/[^0-9]/g, ""), 10) || 0;
     const count = parseInt(document.getElementById(`count${i}`).value, 10) || 0;
+    const classValue = document.getElementById(`class${i}`).value; // 区分を取得
 
-    // 手数料を保険料 × 5%で統一（小数点以下切り捨てなし）
-    const rowCommission = premium * count * 0.05;
+    let rowCommission = 0;
+
+    if (classValue === "1") {
+      // 区分が個人事業主の場合の手数料計算（3,000円 + 税）
+      const singleCommission = 3000;
+      const taxRate = 0.1; // 消費税10%
+      rowCommission = count * singleCommission * (1 + taxRate);
+    } else {
+      // その他区分の手数料計算（保険料 × 5%）
+      rowCommission = premium * count * 0.05;
+    }
 
     const rowTotal = premium * count;
 
@@ -97,22 +107,14 @@ function updateTotal() {
     totalCommission += rowCommission;
   }
 
-  // 消費税を計算
-  const taxRate = 0.1; // 消費税10%
-  let totalCommissionTax = totalCommission * (1 + taxRate);
-
   // 手数料合計（税込）の小数点以下を切り捨て
-  totalCommissionTax = Math.floor(totalCommissionTax);
+  totalCommission = Math.floor(totalCommission);
 
   // 保険料合計を表示
   document.getElementById("total-premium").textContent = totalPremium > 0 ? `${totalPremium.toLocaleString()}円` : "---";
 
-  // 手数料合計を表示
-  document.getElementById("total-commission").textContent = totalCommission > 0 ? `${totalCommission.toLocaleString()}円` : "---";
-
   // 手数料合計（税込）を表示
-  document.getElementById("total-commission-tax").textContent = totalCommissionTax > 0 ? `${totalCommissionTax.toLocaleString()}円` : "---";
+  document.getElementById("total-commission-tax").textContent = totalCommission > 0 ? `${totalCommission.toLocaleString()}円` : "---";
 }
-
 
 
